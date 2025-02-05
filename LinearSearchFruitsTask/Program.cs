@@ -1,18 +1,31 @@
-﻿namespace LinearSearchFruitsTask
+namespace ConsoleApp1
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             string[] fruits = { "banana", "apple", "orange", "pear", "grape", "pineapple" };
-
-            // Your program should:
-            // Ask the user what word they would like to find
-            // Output the message True if the word is found
-            // Output the message False if the word is not found
-            
-            // You must write your own linear search routine and not use any built-in fuctions available in C#
-            // You should use meaningful variable names
+            Console.WriteLine("What fruit would you like to find?");
+            string userFruit = Console.ReadLine();
+            Console.WriteLine(userFruit);
+            bool found = false;
+            while (found == false) 
+            {
+                int i = 0;
+                if (userFruit == fruits[i])
+                {
+                    Console.WriteLine($"True - selected fruit is in the array at index {i}");
+                    found = true;
+                }
+                else if (userFruit != fruits[i])
+                {
+                    i++;
+                }
+                else if (i == fruits.Length - 1 && userFruit != fruits[i])
+                {
+                    Console.WriteLine("False - input is not in the array");
+                }
+            }
         }
     }
 }
